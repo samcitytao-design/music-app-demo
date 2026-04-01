@@ -7,33 +7,36 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #0a0c10;
-    --bg2: #0f1218;
-    --bg3: #151a22;
-    --border: rgba(255,255,255,0.07);
-    --border-bright: rgba(255,255,255,0.15);
-    --text-primary: #e8ecf0;
-    --text-secondary: #8a95a3;
-    --text-muted: #4a5568;
+    --bg: #f3f5f8;
+    --bg2: #ffffff;
+    --bg3: #f8fafc;
+    --border: rgba(15, 23, 42, 0.08);
+    --border-bright: rgba(15, 23, 42, 0.12);
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #64748b;
 
-    --c1: #4facfe;
-    --c2: #a78bfa;
-    --c3: #34d399;
-    --c4: #fb923c;
-    --c5: #f472b6;
+    --c1: #1b8cff;
+    --c2: #7c6cf0;
+    --c3: #10b981;
+    --c4: #f97316;
+    --c5: #ec4899;
 
-    --c1-dim: rgba(79,172,254,0.08);
-    --c2-dim: rgba(167,139,250,0.08);
-    --c3-dim: rgba(52,211,153,0.08);
-    --c4-dim: rgba(251,146,60,0.08);
-    --c5-dim: rgba(244,114,182,0.08);
+    --c1-dim: rgba(27, 140, 255, 0.12);
+    --c2-dim: rgba(124, 108, 240, 0.12);
+    --c3-dim: rgba(16, 185, 129, 0.12);
+    --c4-dim: rgba(249, 115, 22, 0.12);
+    --c5-dim: rgba(236, 72, 153, 0.12);
 
-    --pain: #ff6b6b;
-    --pain-dim: rgba(255,107,107,0.08);
-    --guide: #fcd34d;
-    --guide-dim: rgba(252,211,77,0.08);
-    --feature: #6ee7b7;
-    --feature-dim: rgba(110,231,183,0.08);
+    --pain: #ef4444;
+    --pain-dim: rgba(239, 68, 68, 0.1);
+    --guide: #d97706;
+    --guide-dim: rgba(245, 158, 11, 0.14);
+    --feature: #059669;
+    --feature-dim: rgba(5, 150, 105, 0.1);
+
+    --shareit-blue: #1b8cff;
+    --shareit-blue-press: #1578d9;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -54,9 +57,9 @@
     position: fixed;
     inset: 0;
     background-image:
-      linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
-    background-size: 40px 40px;
+      linear-gradient(rgba(15, 23, 42, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
+    background-size: 48px 48px;
     pointer-events: none;
     z-index: 0;
   }
@@ -72,7 +75,8 @@
   .navbar {
     position: sticky;
     top: 0;
-    background: var(--bg2);
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(10px);
     border: 1px solid var(--border);
     border-radius: 12px;
     padding: 12px 20px;
@@ -82,6 +86,7 @@
     flex-wrap: wrap;
     justify-content: center;
     z-index: 99;
+    box-shadow: 0 4px 24px rgba(15, 23, 42, 0.06);
   }
   .nav-btn {
     padding: 6px 14px;
@@ -96,11 +101,12 @@
   .nav-btn:hover {
     border-color: var(--border-bright);
     color: var(--text-primary);
+    background: #fff;
   }
   .nav-btn.active {
-    background: var(--c1);
+    background: var(--shareit-blue);
     color: #fff;
-    border-color: var(--c1);
+    border-color: var(--shareit-blue);
   }
 
   /* 头部 */
@@ -120,7 +126,7 @@
   .header h1 {
     font-size: clamp(24px, 4vw, 38px);
     font-weight: 900;
-    background: linear-gradient(135deg, #e8ecf0 30%, #6b7a8d);
+    background: linear-gradient(135deg, #0f172a 20%, #475569);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -182,7 +188,7 @@
     content: ''; position:absolute; left:0; top:0; bottom:0; width:3px;
     border-radius: 3px 0 0 3px;
   }
-  .stage-header:hover { background:var(--bg3); }
+  .stage-header:hover { background: #f8fafc; }
 
   .stage-num {
     font-family: 'JetBrains Mono', monospace;
@@ -231,21 +237,21 @@
     font-size:12px; line-height:1.65; border:1px solid;
     position:relative; transition:0.2s; cursor:default;
   }
-  .card:hover { transform:translateY(-1px); box-shadow:0 4px 16px rgba(0,0,0,0.3); }
+  .card:hover { transform:translateY(-1px); box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08); }
   .card:last-child { margin-bottom:0; }
-  .card-path { background:var(--c1-dim); border-color:rgba(79,172,254,0.25); color:#a8d4f5; }
-  .card-pain { background:var(--pain-dim); border-color:rgba(255,107,107,0.3); color:#ffaeae; }
-  .card-guide { background:var(--guide-dim); border-color:rgba(252,211,77,0.3); color:#fde68a; cursor:pointer; }
-  .card-feature { background:var(--feature-dim); border-color:rgba(110,231,183,0.3); color:#6ee7b7; cursor:pointer; }
+  .card-path { background: var(--c1-dim); border-color: rgba(27, 140, 255, 0.28); color: #0c4a6e; }
+  .card-pain { background: var(--pain-dim); border-color: rgba(239, 68, 68, 0.25); color: #991b1b; }
+  .card-guide { background: var(--guide-dim); border-color: rgba(217, 119, 6, 0.3); color: #92400e; cursor:pointer; }
+  .card-feature { background: var(--feature-dim); border-color: rgba(5, 150, 105, 0.28); color: #065f46; cursor:pointer; }
 
   .card-tag {
     display:inline-block; font-size:9px; font-weight:700; letter-spacing:0.08em;
     padding:1px 6px; border-radius:3px; margin-bottom:6px; text-transform:uppercase;
   }
-  .tag-path { background:rgba(79,172,254,0.2); color:var(--c1); }
-  .tag-pain { background:rgba(255,107,107,0.2); color:var(--pain); }
-  .tag-guide { background:rgba(252,211,77,0.2); color:var(--guide); }
-  .tag-feature { background:rgba(110,231,183,0.2); color:var(--feature); }
+  .tag-path { background: rgba(27, 140, 255, 0.18); color: #0369a1; }
+  .tag-pain { background: rgba(239, 68, 68, 0.15); color: #b91c1c; }
+  .tag-guide { background: rgba(245, 158, 11, 0.2); color: #b45309; }
+  .tag-feature { background: rgba(5, 150, 105, 0.15); color: #047857; }
 
   .card ul { padding-left:14px; }
   .card li { margin-bottom:3px; }
@@ -261,56 +267,128 @@
     background:linear-gradient(to bottom, transparent, var(--border-bright), transparent);
   }
   .arrow-badge {
-    background:var(--bg3); border:1px solid var(--border-bright);
+    background: #fff;
+    border: 1px solid var(--border);
     border-radius:20px; padding:3px 12px; font-size:10px;
     color:var(--text-muted); font-family:'JetBrains Mono', monospace;
     position:relative; z-index:1; letter-spacing:0.06em;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
   }
 
   /* 主题色 */
   .phase-1 .stage-header::before { background:var(--c1); }
-  .phase-1 .stage-num { background:rgba(79,172,254,0.15); color:var(--c1); }
-  .phase-1 .stage-title { color:var(--c1); }
+  .phase-1 .stage-num { background: rgba(27, 140, 255, 0.12); color: var(--c1); }
+  .phase-1 .stage-title { color: var(--c1); }
 
   .phase-2 .stage-header::before { background:var(--c2); }
-  .phase-2 .stage-num { background:rgba(167,139,250,0.15); color:var(--c2); }
+  .phase-2 .stage-num { background: rgba(124, 108, 240, 0.12); color:var(--c2); }
   .phase-2 .stage-title { color:var(--c2); }
 
   .phase-3 .stage-header::before { background:var(--c3); }
-  .phase-3 .stage-num { background:rgba(52,211,153,0.15); color:var(--c3); }
+  .phase-3 .stage-num { background: rgba(16, 185, 129, 0.12); color:var(--c3); }
   .phase-3 .stage-title { color:var(--c3); }
 
   .phase-4 .stage-header::before { background:var(--c4); }
-  .phase-4 .stage-num { background:rgba(251,146,60,0.15); color:var(--c4); }
+  .phase-4 .stage-num { background: rgba(249, 115, 22, 0.12); color:var(--c4); }
   .phase-4 .stage-title { color:var(--c4); }
 
   /* 弹窗 */
   .modal {
-    display:none; position:fixed; top:0; left:0; width:100%; height:100%;
-    background:rgba(0,0,0,0.7); z-index:999; align-items:center; justify-content:center;
-    padding:20px;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.45);
+    z-index: 999;
+    align-items: center;
+    justify-content: center;
+    padding: max(16px, env(safe-area-inset-top, 0px)) 16px max(16px, env(safe-area-inset-bottom, 0px));
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
-  .modal.show { display:flex; }
+  .modal.show { display: flex; }
   .modal-content {
-    background:var(--bg2); border:1px solid var(--border);
+    background: #fff;
+    border: 1px solid var(--border);
     border-radius:16px; max-width:480px; width:100%;
     padding:30px; position:relative; animation:modalPop 0.3s;
+    box-shadow: 0 24px 48px rgba(15, 23, 42, 0.12);
+    margin: auto;
   }
   .modal-content.demo-content {
-    max-width: 760px;
-    padding: 24px;
+    max-width: 400px;
+    width: min(400px, calc(100vw - 32px));
+    max-height: min(90vh, 680px);
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .demo-modal-toolbar {
+    flex-shrink: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 12px 12px 16px;
+    border-bottom: 1px solid var(--border);
+    background: #fff;
+    z-index: 3;
+  }
+  .demo-modal-toolbar .modal-title {
+    margin-bottom: 4px;
+    font-size: 15px;
+    padding-right: 0;
+  }
+  .demo-modal-toolbar .modal-desc {
+    margin-bottom: 0;
+    font-size: 12px;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .demo-modal-body {
+    overflow-y: auto;
+    padding: 12px 14px 16px;
+    flex: 1;
+    min-height: 0;
+    -webkit-overflow-scrolling: touch;
+  }
+  .demo-content .demo-box {
+    margin: 0;
+    padding: 12px;
+    border-style: solid;
   }
   .modal-close {
     position:absolute; top:16px; right:16px; width:28px; height:28px;
-    border-radius:50%; background:var(--bg3); border:none; color:var(--text-secondary);
+    border-radius:50%; background: #f1f5f9; border:none; color:var(--text-secondary);
     cursor:pointer; display:grid; place-items:center; font-size:16px;
+  }
+  .modal-close.modal-close-toolbar {
+    position: static;
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1;
+    flex-shrink: 0;
+    background: #e2e8f0;
+    color: #0f172a;
+    border: 1px solid #cbd5e1;
+  }
+  .modal-close.modal-close-toolbar:hover {
+    background: #cbd5e1;
   }
   .modal-title { font-size:16px; font-weight:700; margin-bottom:20px; color:var(--text-primary); }
   .modal-desc { font-size:13px; color:var(--text-secondary); margin-bottom:24px; line-height:1.7; }
   .modal-btns { display:flex; gap:12px; justify-content:flex-end; }
   .modal-btn { padding:8px 16px; border-radius:8px; font-size:12px; border:none; cursor:pointer; }
-  .btn-primary { background:var(--c1); color:#fff; }
-  .btn-secondary { background:var(--bg3); color:var(--text-secondary); }
+  .btn-primary { background: var(--shareit-blue); color:#fff; }
+  .btn-secondary { background: #f1f5f9; color:var(--text-secondary); }
 
   /* 功能演示面板 */
   .demo-panel {
@@ -320,12 +398,13 @@
   .demo-panel.show { display:block; }
   .demo-title { font-size:12px; color:var(--guide); margin-bottom:10px; font-weight:500; }
   .demo-box {
-    background:var(--bg2); border:1px dashed var(--border-bright);
+    background: #f8fafc;
+    border: 1px dashed var(--border-bright);
     border-radius:12px; padding:16px; text-align:center;
   }
   .demo-focus {
-    border: 1px solid rgba(110,231,183,0.35);
-    background: rgba(110,231,183,0.08);
+    border: 1px solid rgba(27, 140, 255, 0.2);
+    background: rgba(27, 140, 255, 0.06);
     border-radius: 10px;
     padding: 10px 12px;
     margin-bottom: 12px;
@@ -333,14 +412,14 @@
   }
   .demo-focus-label {
     font-size: 10px;
-    color: #9cdcc4;
+    color: var(--shareit-blue);
     letter-spacing: 0.08em;
     margin-bottom: 4px;
   }
   .demo-focus-title {
     font-size: 16px;
     font-weight: 800;
-    color: #dffcef;
+    color: #0f172a;
     line-height: 1.35;
   }
   .demo-kpi {
@@ -350,88 +429,313 @@
     gap: 8px;
     font-size: 12px;
     font-weight: 600;
-    color: #6ee7b7;
-    background: rgba(52,211,153,0.12);
-    border: 1px solid rgba(52,211,153,0.35);
+    color: #047857;
+    background: rgba(16, 185, 129, 0.12);
+    border: 1px solid rgba(16, 185, 129, 0.28);
     border-radius: 999px;
     padding: 4px 10px;
   }
   .demo-action {
     display:inline-block; margin-top:10px; padding:6px 14px;
-    background:var(--feature); color:#000; border-radius:8px;
+    background: var(--shareit-blue);
+    color: #fff;
+    border-radius:8px;
     font-size:12px; font-weight:500; cursor:pointer; border:none;
+  }
+
+  /* SHAREit 风格手机框（参照浅色主站） */
+  .demo-content .phone-shell {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto 8px;
+    padding: 8px;
+    border-radius: 28px;
+  }
+  .demo-content .phone-screen {
+    min-height: 380px;
+    border-radius: 22px;
   }
   .phone-shell {
     width: min(100%, 390px);
     margin: 0 auto 10px;
-    background: #0a0f16;
-    border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 30px;
-    padding: 12px;
-    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.05), 0 10px 24px rgba(0,0,0,0.45);
-  }
-  .phone-notch {
-    width: 80px;
-    height: 6px;
-    border-radius: 999px;
-    background: rgba(255,255,255,0.12);
-    margin: 2px auto 8px;
+    background: linear-gradient(180deg, #f4f4f7 0%, #e8e8ed 100%);
+    border: 1px solid #d4d6dd;
+    border-radius: 36px;
+    padding: 10px;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.9),
+      0 12px 40px rgba(15, 23, 42, 0.12);
   }
   .phone-screen {
     min-height: 500px;
-    border-radius: 20px;
-    background: linear-gradient(180deg, #111722 0%, #0c111a 100%);
-    border: 1px solid rgba(255,255,255,0.06);
-    padding: 16px;
+    border-radius: 26px;
+    background: #ffffff;
+    border: 1px solid var(--border);
+    padding: 0;
     text-align: left;
-    color: #dbe6f5;
+    color: #0f172a;
     transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
   }
-  .phone-topbar {
+
+  .phone-shareit-chrome {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+    background: #ffffff;
+  }
+  .phone-status-bar {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 10px 16px 6px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #0f172a;
+    letter-spacing: -0.02em;
+  }
+  .phone-time { font-variant-numeric: tabular-nums; }
+  .phone-dynamic-island {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 92px;
+    height: 28px;
+    background: #0f172a;
+    border-radius: 20px;
+    margin-top: 2px;
+  }
+  .phone-signal-row {
     font-size: 10px;
-    opacity: 0.8;
-    margin-bottom: 10px;
+    color: #475569;
+    display: flex;
+    align-items: center;
+    gap: 4px;
   }
-  .phone-appname {
-    font-size: 14px;
+  .phone-signal-icons { letter-spacing: -2px; color: #0f172a; font-size: 9px; }
+  .phone-battery { font-variant-numeric: tabular-nums; }
+
+  .phone-shareit-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px 16px 12px;
+  }
+  .phone-brand-shareit {
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 4px 6px;
+  }
+  .phone-brand-suffix {
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--shareit-blue);
+    letter-spacing: -0.02em;
+  }
+  .phone-brand-shareit .brand-share { color: #0f172a; }
+  .phone-brand-shareit .brand-it {
+    color: #94a3b8;
     font-weight: 700;
-    color: #9ecbff;
-    margin-bottom: 12px;
   }
+  .phone-brand-shareit .brand-i {
+    position: relative;
+  }
+  .phone-brand-shareit .brand-i-dot {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: #ef4444;
+    border-radius: 50%;
+    top: -2px;
+    right: -2px;
+  }
+  .phone-top-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .phone-crown { font-size: 16px; line-height: 1; opacity: 0.9; }
+  .phone-plus-btn {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1px solid #e2e8f0;
+    background: #fff;
+    color: #0f172a;
+    font-size: 18px;
+    line-height: 1;
+    display: grid;
+    place-items: center;
+    cursor: default;
+    padding: 0;
+    font-weight: 300;
+  }
+
+  .phone-music-tagline {
+    font-size: 11px;
+    color: #64748b;
+    margin: -4px 16px 8px;
+    font-weight: 500;
+  }
+  .phone-search-pill {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 14px 10px;
+    padding: 10px 12px;
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    border-radius: 999px;
+    font-size: 12px;
+    color: #64748b;
+  }
+  .phone-search-ic { font-size: 14px; opacity: 0.85; }
+  .phone-search-placeholder {
+    flex: 1;
+    min-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .phone-music-tabs {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4px;
+    padding: 0 10px 10px;
+    border-bottom: 1px solid #f1f5f9;
+  }
+  .phone-mtab {
+    flex: 1;
+    border: none;
+    background: none;
+    padding: 8px 4px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #94a3b8;
+    cursor: default;
+    border-radius: 8px;
+    font-family: inherit;
+  }
+  .phone-mtab-active {
+    color: var(--shareit-blue);
+    background: rgba(27, 140, 255, 0.1);
+  }
+  .phone-music-shortcuts {
+    display: flex;
+    justify-content: space-between;
+    gap: 6px;
+    padding: 10px 12px 8px;
+  }
+  .phone-ms-item {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    text-align: center;
+  }
+  .phone-ms-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--shareit-blue);
+    color: #fff;
+    display: grid;
+    place-items: center;
+    font-size: 18px;
+    box-shadow: 0 4px 14px rgba(27, 140, 255, 0.3);
+  }
+  .phone-ms-item span {
+    font-size: 10px;
+    font-weight: 700;
+    color: #334155;
+    line-height: 1.2;
+  }
+
+  .phone-body-scroll {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    padding: 6px 14px 10px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .phone-tabbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 8px 4px calc(8px + env(safe-area-inset-bottom, 0));
+    border-top: 1px solid #eef0f4;
+    background: #fff;
+    flex-shrink: 0;
+  }
+  .phone-tab {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    font-size: 9px;
+    font-weight: 600;
+    color: #64748b;
+    min-width: 52px;
+  }
+  .phone-tab-active {
+    color: var(--shareit-blue);
+  }
+  .phone-tab-ic {
+    font-size: 18px;
+    line-height: 1;
+    opacity: 0.85;
+  }
+  .phone-tab-active .phone-tab-ic { opacity: 1; }
+
   .phone-card {
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid #eef0f4;
     border-radius: 12px;
-    background: rgba(255,255,255,0.04);
+    background: #f8fafc;
     padding: 12px;
     margin-bottom: 10px;
     font-size: 13px;
-    line-height: 1.5;
+    line-height: 1.55;
+    color: #334155;
   }
   .phone-cta {
     border: none;
-    border-radius: 10px;
-    background: linear-gradient(135deg, #34d399, #4facfe);
-    color: #062115;
-    font-size: 13px;
+    border-radius: 12px;
+    background: var(--shareit-blue);
+    color: #fff;
+    font-size: 14px;
     font-weight: 700;
-    padding: 10px;
+    padding: 12px;
     width: 100%;
     margin-bottom: 10px;
+    cursor: pointer;
+    box-shadow: 0 6px 16px rgba(27, 140, 255, 0.28);
   }
+  .phone-cta:active { background: var(--shareit-blue-press); }
   .phone-emphasis {
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 800;
-    color: #f8fffd;
+    color: var(--shareit-blue);
     margin-top: 4px;
+    text-align: center;
   }
-  .phone-card strong { color: #6ee7b7; }
+  .phone-card strong { color: #0369a1; }
   .phone-checklist {
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid #eef0f4;
     border-radius: 12px;
-    background: rgba(255,255,255,0.03);
+    background: #fff;
     padding: 10px;
     margin-bottom: 10px;
   }
@@ -440,7 +744,7 @@
     align-items: center;
     gap: 8px;
     font-size: 12px;
-    color: #dbe6f5;
+    color: #334155;
     margin-bottom: 6px;
   }
   .phone-checkitem:last-child { margin-bottom: 0; }
@@ -448,34 +752,34 @@
     width: 16px;
     height: 16px;
     border-radius: 5px;
-    border: 1px solid rgba(110,231,183,0.55);
-    background: rgba(52,211,153,0.18);
+    border: 1px solid rgba(16, 185, 129, 0.45);
+    background: rgba(16, 185, 129, 0.12);
     display: grid;
     place-items: center;
     font-size: 11px;
-    color: #7ff0c3;
+    color: #059669;
     flex-shrink: 0;
   }
   .phone-checkitem.off .phone-checkdot {
-    border-color: rgba(255,255,255,0.25);
-    background: rgba(255,255,255,0.05);
-    color: rgba(255,255,255,0.45);
+    border-color: #e2e8f0;
+    background: #f8fafc;
+    color: #94a3b8;
   }
   .phone-ghost-btn {
     width: 100%;
-    border: 1px solid rgba(255,255,255,0.2);
+    border: 1px solid #e2e8f0;
     border-radius: 10px;
-    background: rgba(255,255,255,0.04);
-    color: #d2deee;
+    background: #fff;
+    color: #475569;
     font-size: 12px;
     padding: 8px 10px;
     margin-bottom: 10px;
     cursor: pointer;
   }
   .audio-wave {
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid #eef0f4;
     border-radius: 12px;
-    background: rgba(255,255,255,0.03);
+    background: #fff;
     padding: 10px;
     margin-bottom: 10px;
   }
@@ -503,15 +807,15 @@
     display: flex;
     gap: 8px;
     font-size: 11px;
-    color: rgba(219,230,245,0.8);
+    color: #64748b;
   }
   .phone-player {
     display: flex;
     gap: 12px;
     align-items: center;
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid #eef0f4;
     border-radius: 14px;
-    background: rgba(255,255,255,0.04);
+    background: #fff;
     padding: 12px;
     margin-bottom: 10px;
   }
@@ -520,9 +824,9 @@
     height: 76px;
     border-radius: 14px;
     overflow: hidden;
-    border: 1px solid rgba(255,255,255,0.12);
+    border: 1px solid #e2e8f0;
     flex-shrink: 0;
-    background: rgba(255,255,255,0.06);
+    background: #f1f5f9;
   }
   .phone-cover img {
     display: block;
@@ -537,7 +841,7 @@
   .phone-track-title {
     font-size: 14px;
     font-weight: 800;
-    color: #eef6ff;
+    color: #0f172a;
     line-height: 1.25;
     white-space: nowrap;
     overflow: hidden;
@@ -545,7 +849,7 @@
   }
   .phone-track-sub {
     font-size: 12px;
-    color: rgba(219,230,245,0.75);
+    color: #64748b;
     margin-top: 3px;
     white-space: nowrap;
     overflow: hidden;
@@ -558,16 +862,16 @@
   }
   .phone-chip {
     font-size: 11px;
-    color: #bfe8d7;
-    background: rgba(52,211,153,0.10);
-    border: 1px solid rgba(52,211,153,0.25);
+    color: #047857;
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.22);
     border-radius: 999px;
     padding: 4px 8px;
   }
   .lyrics-box {
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid #eef0f4;
     border-radius: 14px;
-    background: rgba(255,255,255,0.03);
+    background: #f8fafc;
     padding: 12px;
     max-height: 210px;
     overflow: auto;
@@ -578,18 +882,18 @@
     line-height: 1.55;
     padding: 4px 6px;
     border-radius: 8px;
-    color: rgba(219,230,245,0.72);
+    color: #64748b;
     transition: 0.25s ease;
   }
   .lyric-line.active {
-    background: rgba(79,172,254,0.14);
-    border: 1px solid rgba(79,172,254,0.25);
-    color: #eaf3ff;
+    background: rgba(27, 140, 255, 0.12);
+    border: 1px solid rgba(27, 140, 255, 0.25);
+    color: #0f172a;
   }
   .skeleton-cover {
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, rgba(255,255,255,0.06), rgba(255,255,255,0.12), rgba(255,255,255,0.06));
+    background: linear-gradient(90deg, #e2e8f0, #f1f5f9, #e2e8f0);
     background-size: 200% 100%;
     animation: shimmer 1.2s linear infinite;
   }
@@ -599,7 +903,7 @@
   }
   .phone-progress {
     height: 6px;
-    background: rgba(255,255,255,0.08);
+    background: #e2e8f0;
     border-radius: 999px;
     overflow: hidden;
     margin-top: 6px;
@@ -608,27 +912,28 @@
     display: block;
     height: 100%;
     width: 0%;
-    background: linear-gradient(90deg, #34d399, #4facfe);
+    background: linear-gradient(90deg, var(--shareit-blue), #38bdf8);
     transition: width 0.5s ease;
   }
   .phone-tip {
     font-size: 11px;
-    color: #9aa8bc;
+    color: #94a3b8;
     margin-top: 8px;
     text-align: center;
   }
   #demoStatus {
     font-size: 13px;
     line-height: 1.6;
-    color: #c7d5e8;
+    color: #475569;
     margin-top: 6px;
   }
 
   /* 总结 */
   .summary-block {
-    margin-top:40px; padding:30px; background:var(--bg2);
+    margin-top:40px; padding:30px; background: #fff;
     border:1px solid var(--border); border-radius:12px;
     animation:fadeUp 0.7s 0.8s ease both; position:relative; overflow:hidden;
+    box-shadow: 0 8px 32px rgba(15, 23, 42, 0.06);
   }
   .summary-block::before {
     content:''; position:absolute; top:0; left:0; right:0; height:2px;
@@ -642,7 +947,7 @@
     background:var(--bg3); border:1px solid var(--border); border-radius:8px;
     padding:14px; font-size:12px; transition:0.2s;
   }
-  .summary-pill:hover { border-color:var(--border-bright); transform:translateY(-2px); }
+  .summary-pill:hover { border-color:var(--border-bright); transform:translateY(-2px); box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06); }
   .sp-label { font-size:10px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:6px; opacity:0.7; }
   .sp-value { font-weight:500; }
 
@@ -657,8 +962,12 @@
     .flow-col { border-right:none; border-bottom:1px solid var(--border); }
     .flow-col:nth-child(odd) { border-right:1px solid var(--border); }
     .flow-col:last-child, .flow-col:nth-last-child(2):nth-child(odd) { border-bottom:none; }
-    .modal-content.demo-content { max-width: 96vw; padding: 16px; }
-    .phone-screen { min-height: 430px; }
+    .modal-content.demo-content {
+      width: calc(100vw - 24px);
+      max-width: 400px;
+      max-height: 85vh;
+    }
+    .demo-content .phone-screen { min-height: 340px; }
   }
   @media (max-width:440px) {
     .flow-grid { grid-template-columns:1fr; }
@@ -666,8 +975,8 @@
   }
 
   ::-webkit-scrollbar { width:6px; }
-  ::-webkit-scrollbar-track { background:var(--bg); }
-  ::-webkit-scrollbar-thumb { background:#2a313d; border-radius:3px; }
+  ::-webkit-scrollbar-track { background: #e2e8f0; }
+  ::-webkit-scrollbar-thumb { background:#94a3b8; border-radius:3px; }
 </style>
 </head>
 <body>
@@ -686,7 +995,7 @@
   <div class="header">
     <div class="eyebrow">SHAREit Music App · Interactive Demo</div>
     <h1>新音乐APP 全链路用户旅程<br>交互演示版</h1>
-    <div class="sub"><strong style="color:#f8fafc;font-weight:900;">我们不是在做一个音乐APP，而是在接管第三世界的“离线音乐分发网络”。</strong></div>
+    <div class="sub"><strong style="color:#0f172a;font-weight:900;">我们不是在做一个音乐APP，而是在接管第三世界的“离线音乐分发网络”。</strong></div>
   </div>
 
   <!-- 图例 -->
@@ -794,8 +1103,8 @@
       <div class="flow-grid">
         <div class="flow-col">
           <div class="col-label"><span class="col-icon">🎵</span>用户行为</div>
-          <div class="card card-path" style="background:var(--c2-dim);border-color:rgba(167,139,250,0.25);color:#c4b5fd">
-            <div class="card-tag" style="background:rgba(167,139,250,0.2);color:var(--c2)">高频使用</div>
+          <div class="card card-path" style="background:var(--c2-dim);border-color:rgba(124,108,240,0.35);color:#5b21b6">
+            <div class="card-tag" style="background:rgba(124,108,240,0.18);color:var(--c2)">高频使用</div>
             <ul>
               <li>使用系统自带播放器</li>
               <li>使用功能简陋第三方APP</li>
@@ -881,8 +1190,8 @@
       <div class="flow-grid">
         <div class="flow-col">
           <div class="col-label"><span class="col-icon">🎵</span>用户行为</div>
-          <div class="card card-path" style="background:var(--c3-dim);border-color:rgba(52,211,153,0.25);color:#a7f3d0">
-            <div class="card-tag" style="background:rgba(52,211,153,0.2);color:var(--c3)">传播</div>
+          <div class="card card-path" style="background:var(--c3-dim);border-color:rgba(16,185,129,0.35);color:#047857">
+            <div class="card-tag" style="background:rgba(16,185,129,0.18);color:var(--c3)">传播</div>
             <ul>
               <li>SHAREit 一对一传歌</li>
               <li>SHAREit 群组批量传歌</li>
@@ -960,8 +1269,8 @@
       <div class="flow-grid">
         <div class="flow-col">
           <div class="col-label"><span class="col-icon">🎵</span>用户行为</div>
-          <div class="card card-path" style="background:var(--c4-dim);border-color:rgba(251,146,60,0.25);color:#fed7aa">
-            <div class="card-tag" style="background:rgba(251,146,60,0.2);color:var(--c4)">换机</div>
+          <div class="card card-path" style="background:var(--c4-dim);border-color:rgba(249,115,22,0.35);color:#9a3412">
+            <div class="card-tag" style="background:rgba(249,115,22,0.18);color:var(--c4)">换机</div>
             <ul>
               <li>购买新安卓手机</li>
               <li>使用SHAREit进行换机克隆</li>
@@ -1047,9 +1356,9 @@
 
 </div>
 
-<!-- 弹窗 -->
-<div class="modal" id="modal">
-  <div class="modal-content">
+<!-- 弹窗：点击遮罩空白处可关闭 -->
+<div class="modal" id="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal-content" onclick="event.stopPropagation()">
     <button class="modal-close" onclick="closeModal()">×</button>
     <div class="modal-title">📢 引流弹窗演示</div>
     <div class="modal-desc" id="modalText">提示内容</div>
@@ -1060,24 +1369,29 @@
   </div>
 </div>
 
-<!-- 功能演示 -->
-<div class="modal" id="demoModal">
-  <div class="modal-content demo-content">
-    <button class="modal-close" onclick="closeDemo()">×</button>
-    <div class="modal-title">✨ 功能交互演示</div>
-    <div class="modal-desc" id="demoText">功能说明</div>
-    <div class="demo-box">
-      <div class="demo-focus">
-        <div class="demo-focus-label">CORE VALUE</div>
-        <div class="demo-focus-title" id="demoFocusTitle">核心卖点加载中...</div>
-        <div class="demo-kpi" id="demoKpi">等待演示启动</div>
+<!-- 功能演示：点击遮罩空白处可关闭 -->
+<div class="modal" id="demoModal" onclick="if(event.target===this)closeDemo()">
+  <div class="modal-content demo-content" role="dialog" aria-modal="true" aria-labelledby="demoModalTitle" onclick="event.stopPropagation()">
+    <div class="demo-modal-toolbar">
+      <div>
+        <div class="modal-title" id="demoModalTitle">✨ 功能交互演示</div>
+        <div class="modal-desc" id="demoText">功能说明</div>
       </div>
-      <div class="phone-shell">
-        <div class="phone-notch"></div>
-        <div class="phone-screen" id="demoScreen"></div>
+      <button type="button" class="modal-close modal-close-toolbar" onclick="closeDemo()" aria-label="关闭演示">×</button>
+    </div>
+    <div class="demo-modal-body">
+      <div class="demo-box">
+        <div class="demo-focus">
+          <div class="demo-focus-label">CORE VALUE</div>
+          <div class="demo-focus-title" id="demoFocusTitle">核心卖点加载中...</div>
+          <div class="demo-kpi" id="demoKpi">等待演示启动</div>
+        </div>
+        <div class="phone-shell">
+          <div class="phone-screen" id="demoScreen"></div>
+        </div>
+        <div id="demoStatus">请直接点击手机里的按钮，开始对应交互演示</div>
+        <div class="phone-tip">模拟手机端动效，仅用于卖点展示 · 点击空白区域关闭</div>
       </div>
-      <div id="demoStatus">请直接点击手机里的按钮，开始对应交互演示</div>
-      <div class="phone-tip">模拟手机端动效，仅用于卖点展示</div>
     </div>
   </div>
 </div>
@@ -1138,8 +1452,57 @@
     return 'default';
   }
 
+  function phoneTabBar() {
+    return `
+      <div class="phone-tabbar" role="navigation" aria-label="主导航">
+        <div class="phone-tab"><span class="phone-tab-ic" aria-hidden="true">⌂</span><span>Home</span></div>
+        <div class="phone-tab"><span class="phone-tab-ic" aria-hidden="true">▣</span><span>Private</span></div>
+        <div class="phone-tab phone-tab-active"><span class="phone-tab-ic" aria-hidden="true">♪</span><span>Music</span></div>
+        <div class="phone-tab"><span class="phone-tab-ic" aria-hidden="true">◎</span><span>Contacts</span></div>
+        <div class="phone-tab"><span class="phone-tab-ic" aria-hidden="true">⬡</span><span>Me</span></div>
+      </div>
+    `;
+  }
+
+  function phoneChromeEnd() {
+    return `</div>${phoneTabBar()}</div>`;
+  }
+
+  function topBase() {
+    return `
+      <div class="phone-shareit-chrome">
+        <div class="phone-status-bar">
+          <span class="phone-time">9:41</span>
+          <span class="phone-dynamic-island" aria-hidden="true"></span>
+          <span class="phone-signal-row"><span class="phone-signal-icons" aria-hidden="true">●●●●</span> 5G <span class="phone-battery">78%</span></span>
+        </div>
+        <div class="phone-shareit-top">
+          <div class="phone-brand-shareit" translate="no"><span class="brand-share">SHARE</span><span class="brand-it"><span class="brand-i">i<span class="brand-i-dot"></span></span>t</span> <span class="phone-brand-suffix">Music</span></div>
+          <div class="phone-top-actions">
+            <span class="phone-crown" title="VIP">👑</span>
+            <button type="button" class="phone-plus-btn" aria-label="新建歌单">+</button>
+          </div>
+        </div>
+        <p class="phone-music-tagline">离线优先 · 本地曲库与互传编排</p>
+        <div class="phone-search-pill" role="search"><span class="phone-search-ic" aria-hidden="true">🔍</span><span class="phone-search-placeholder">搜歌、歌手、哼唱、歌词片段…</span></div>
+        <div class="phone-music-tabs" role="tablist">
+          <button type="button" class="phone-mtab phone-mtab-active" role="tab" aria-selected="true">曲库</button>
+          <button type="button" class="phone-mtab" role="tab" aria-selected="false">歌单</button>
+          <button type="button" class="phone-mtab" role="tab" aria-selected="false">发现</button>
+          <button type="button" class="phone-mtab" role="tab" aria-selected="false">我的</button>
+        </div>
+        <div class="phone-music-shortcuts">
+          <div class="phone-ms-item"><div class="phone-ms-icon" aria-hidden="true">♫</div><span>本地</span></div>
+          <div class="phone-ms-item"><div class="phone-ms-icon" aria-hidden="true">☰</div><span>歌单</span></div>
+          <div class="phone-ms-item"><div class="phone-ms-icon" aria-hidden="true">⇄</div><span>离线同步</span></div>
+          <div class="phone-ms-item"><div class="phone-ms-icon" aria-hidden="true">📶</div><span>传歌榜</span></div>
+        </div>
+        <div class="phone-body-scroll">
+    `;
+  }
+
   function renderPhone(html) {
-    document.getElementById('demoScreen').innerHTML = html;
+    document.getElementById('demoScreen').innerHTML = topBase() + html + phoneChromeEnd();
   }
 
   function getDemoMeta(type) {
@@ -1155,13 +1518,6 @@
     if (type === 'device-switch') return { title: '换机后听歌体验不断档', kpi: '自动恢复应用与历史记录' };
     if (type === 'full-migration') return { title: '换机不丢歌单不丢进度', kpi: '歌曲+歌单+歌词封面+播放进度，一次迁全' };
     return { title: '点击开始查看核心卖点演示', kpi: '准备就绪' };
-  }
-
-  function topBase() {
-    return `
-      <div class="phone-topbar"><span>9:41</span><span>4G · 78%</span></div>
-      <div class="phone-appname">SHAREit Music</div>
-    `;
   }
 
   function coverDataUri(title, artist) {
@@ -1200,9 +1556,8 @@
   }
 
   function getStartScreen(type) {
-    const baseTop = topBase();
     if (type === 'smart-organize') {
-      return baseTop + `
+      return `
         <div class="phone-card">痛点：歌太多找不到、重复占空间、文件名乱码。</div>
         <div class="phone-card">扫描到 <strong>128</strong> 首本地音频，疑似重复 <strong>36</strong> 首。</div>
         <div class="phone-checklist">
@@ -1225,7 +1580,7 @@
       `;
     }
     if (type === 'storage-opt') {
-      return baseTop + `
+      return `
         <div class="phone-card">痛点：手机空间不够，用着卡、还放不下更多歌。</div>
         <div class="phone-card">当前音乐占用</div>
         <div class="phone-emphasis">3.8 GB</div>
@@ -1234,7 +1589,7 @@
       `;
     }
     if (type === 'lyrics-cover') {
-      return baseTop + `
+      return `
         <div class="phone-card">痛点：本地歌“没歌词没封面”，体验像半成品。</div>
         <div class="phone-player">
           <div class="phone-cover"><div class="skeleton-cover" title="封面缺失"></div></div>
@@ -1252,7 +1607,7 @@
       `;
     }
     if (type === 'audio-fix') {
-      return baseTop + `
+      return `
         <div class="phone-card">痛点：Telegram/互传来的 MP3 有杂音、爆音，听久很累。</div>
         <div class="audio-wave">
           <div class="audio-bars">
@@ -1269,7 +1624,7 @@
       `;
     }
     if (type === 'speaker-boost') {
-      return baseTop + `
+      return `
         <div class="phone-card">痛点：外放声音小、低音虚，开大就破音。</div>
         <div class="phone-card">当前外放：系统音量 <strong>72%</strong></div>
         <button class="phone-cta js-phone-start">开启外放增强</button>
@@ -1277,7 +1632,7 @@
       `;
     }
     if (type === 'ai-search') {
-      return baseTop + `
+      return `
         <div class="phone-card">痛点：不会拼写小语种歌名、文件名乱码，根本搜不到。</div>
         <div class="phone-card">AI 搜歌：支持 <strong>哼唱</strong> / <strong>语音</strong> / <strong>歌词片段</strong></div>
         <button class="phone-cta js-phone-start">按住说话：哼唱或说一句歌词</button>
@@ -1285,7 +1640,7 @@
       `;
     }
     if (type === 'p2p-sync') {
-      return baseTop + `
+      return `
         <div class="phone-card">痛点：没网/流量紧张时，想把歌单同步到朋友手机很难。</div>
         <div class="phone-card">附近设备：<strong>3</strong> 台可连接</div>
         <button class="phone-cta js-phone-start">开始零流量同步歌单</button>
@@ -1293,7 +1648,7 @@
       `;
     }
     if (type === 'group-room') {
-      return baseTop + `
+      return `
         <div class="phone-card">痛点：聚会想同播同控，一人播大家听，切歌不同步。</div>
         <div class="phone-card">离线房：<strong>Party-Room</strong></div>
         <div class="phone-card">成员：<strong>4</strong> 人已加入</div>
@@ -1301,7 +1656,7 @@
       `;
     }
     if (type === 'hot-share') {
-      return baseTop + `
+      return `
         <div class="phone-card">痛点：想分享“最近大家都在传的歌”，但不知道传什么更有效。</div>
         <div class="phone-card">传输热榜（基于 SHAREit 真实互传数据）</div>
         <button class="phone-cta js-phone-start">一键直传 TOP1 给好友</button>
@@ -1309,7 +1664,7 @@
       `;
     }
     if (type === 'device-switch') {
-      return baseTop + `
+      return `
         <div class="phone-card">痛点：换机后本地歌散落、播放历史清零，要重新整理。</div>
         <div class="phone-card">检测到 SHAREit 换机连接</div>
         <button class="phone-cta js-phone-start">一键恢复音乐体验</button>
@@ -1317,7 +1672,7 @@
       `;
     }
     if (type === 'full-migration') {
-      return baseTop + `
+      return `
         <div class="phone-card">痛点：换机最怕“歌丢了/歌单没了/进度没了”。</div>
         <div class="phone-card">迁移清单：</div>
         <div class="phone-card"><strong>歌曲</strong> · <strong>歌单</strong> · <strong>歌词/封面</strong> · <strong>播放进度</strong> · <strong>收藏</strong></div>
@@ -1325,7 +1680,7 @@
         <div class="phone-card">方式：P2P 直连秒传，不走公网。</div>
       `;
     }
-    return baseTop + `<div class="phone-card">点击开始运行演示，查看交互流程。</div>`;
+    return `<div class="phone-card">点击开始运行演示，查看交互流程。</div>`;
   }
 
   function getRunFlow(type) {
@@ -1338,7 +1693,7 @@
         },
         {
           kpi: dedupeEnabled ? '执行中：去重 + 命名修复 + 自动归档' : '执行中：已跳过去重，仅命名修复 + 归档',
-          screen: () => topBase() + `
+          screen: () => `
             <div class="phone-card">${dedupeEnabled ? '已勾选去重，正在智能比对重复音频指纹...' : '你已取消勾选去重，本次不会删除重复歌曲。'}</div>
             <div class="phone-card">
               正在执行关键能力...
@@ -1348,7 +1703,7 @@
         },
         {
           kpi: dedupeEnabled ? '整理完成：重复文件减少，目录更清晰' : '整理完成：保留全部歌曲，目录已标准化',
-          screen: () => topBase() + `
+          screen: () => `
             <div class="phone-card">${dedupeEnabled ? '已去重 36 首，乱码修复 18 首，归档 6 个目录。' : '已跳过去重；乱码修复 18 首，归档 6 个目录，全部歌曲已保留。'}</div>
             <button class="phone-cta js-phone-start">重新演示</button>
           `
@@ -1363,7 +1718,7 @@
         },
         {
           kpi: '修复中：针对红色点位做去噪/去爆音',
-          screen: () => topBase() + `
+          screen: () => `
             <div class="audio-wave">
               <div class="audio-bars">
                 <span style="height:26px"></span><span style="height:34px"></span><span class="noise" style="height:58px"></span>
@@ -1381,7 +1736,7 @@
         },
         {
           kpi: '修复完成：红点消失，噪点位已平滑',
-          screen: () => topBase() + `
+          screen: () => `
             <div class="audio-wave">
               <div class="audio-bars">
                 <span style="height:26px"></span><span style="height:34px"></span><span class="fixed" style="height:44px"></span>
@@ -1417,7 +1772,7 @@
         },
         {
           kpi: '匹配中：自动识别曲目并补全元数据',
-          screen: () => topBase() + `
+          screen: () => `
             <div class="phone-player">
               <div class="phone-cover"><div class="skeleton-cover" title="匹配中"></div></div>
               <div class="phone-track">
@@ -1433,232 +1788,4 @@
               正在执行关键能力...
               <div class="phone-progress"><span id="demoBar"></span></div>
             </div>
-            <div class="lyrics-box" aria-label="歌词预览">
-              ${lyricsLinesHtml(lines.map(()=>'…'), -1)}
-            </div>
-          `
-        },
-        {
-          kpi: '补全完成：封面出现 + 歌词逐行高亮（更像真播放器）',
-          screen: () => topBase() + `
-            <div class="phone-player">
-              <div class="phone-cover"><img alt="专辑封面" src="${cover}"></div>
-              <div class="phone-track">
-                <div class="phone-track-title">${title}</div>
-                <div class="phone-track-sub">${artist} · 已补全封面/歌词</div>
-                <div class="phone-minirow">
-                  <div class="phone-chip">高清封面</div>
-                  <div class="phone-chip">滚动歌词</div>
-                </div>
-              </div>
-            </div>
-            <button class="phone-cta js-phone-lyrics-play">播放并滚动歌词</button>
-            <div class="lyrics-box" id="lyricsBox">
-              ${lyricsLinesHtml(lines, 0)}
-            </div>
-          `
-        }
-      ];
-    }
-    if (type === 'ai-search') {
-      return [
-        {
-          kpi: '痛点触发：不会拼写/文件名乱码也能搜',
-          screen: () => topBase() + `
-            <div class="phone-card">搜索框：输入“？？？”（拼写不确定）</div>
-            <div class="phone-card">提示：可用语音/哼唱/歌词片段</div>
-            <button class="phone-cta">按住说话：唱/说 5 秒</button>
-          `
-        },
-        {
-          kpi: '识别中：提取旋律与歌词特征',
-          screen: () => topBase() + `
-            <div class="phone-card">正在识别音频特征...</div>
-            <div class="phone-card">
-              匹配中...
-              <div class="phone-progress"><span id="demoBar"></span></div>
-            </div>
-            <div class="phone-card">支持：小语种、模糊发音、断句歌词</div>
-          `
-        },
-        {
-          kpi: '结果交付：一键定位并播放/收藏',
-          screen: () => topBase() + `
-            <div class="phone-card"><strong>识别结果</strong></div>
-            <div class="phone-card">Top1：Sia - Unstoppable（相似度 92%）</div>
-            <button class="phone-cta">一键播放 · 加入歌单</button>
-            <div class="phone-card">你不需要会拼写，也能快速找到想听的歌。</div>
-          `
-        }
-      ];
-    }
-    if (type === 'full-migration') {
-      return [
-        {
-          kpi: '痛点触发：换机后不想从零开始',
-          screen: () => topBase() + `
-            <div class="phone-card">检测到新机连接成功</div>
-            <div class="phone-card">选择：全量迁移（推荐）</div>
-            <button class="phone-cta">开始迁移（0 流量）</button>
-            <div class="phone-card">包含：歌曲/歌单/歌词封面/播放进度/收藏</div>
-          `
-        },
-        {
-          kpi: '迁移中：边传边校验，防丢失',
-          screen: () => topBase() + `
-            <div class="phone-card">正在迁移到新机...</div>
-            <div class="phone-card">
-              传输 + 校验
-              <div class="phone-progress"><span id="demoBar"></span></div>
-            </div>
-            <div class="phone-card">断点续传：中途断开也可继续。</div>
-          `
-        },
-        {
-          kpi: '迁移完成：开机即可续听原位置',
-          screen: () => topBase() + `
-            <div class="phone-card"><strong>迁移完成</strong></div>
-            <div class="phone-card">歌曲 2,148 · 歌单 26 · 歌词封面已补齐</div>
-            <div class="phone-card">已恢复：上次播放《Track A》 01:23</div>
-            <button class="phone-cta">继续播放（不断档）</button>
-          `
-        }
-      ];
-    }
-
-    // 其他卖点走通用流程（仍展示开始页 + 进度 + 结果），保持原逻辑但更贴近“痛点→收益”
-    return [
-      {
-        kpi: '痛点触发：定位问题并一键解决',
-        screen: () => getStartScreen(type)
-      },
-      {
-        kpi: '执行中：关键能力正在生效',
-        screen: () => getStartScreen(type) + `
-          <div class="phone-card">
-            正在执行关键能力...
-            <div class="phone-progress"><span id="demoBar"></span></div>
-          </div>
-        `
-      },
-      {
-        kpi: '结果交付：立刻看到变化',
-        screen: () => getStartScreen(type) + `
-          <div class="phone-card">${getResultText(type)}</div>
-        `
-      }
-    ];
-  }
-
-  function getResultText(type) {
-    let result = '✅ 演示完成：卖点能力已生效，可继续下一步。';
-    if (type === 'smart-organize') result = dedupeEnabled
-      ? '✅ 已完成：去重 36 首、修复乱码 18 首、自动归档 6 个目录；之后按歌手/专辑一找就到。'
-      : '✅ 已完成：已按你的选择跳过去重；完成命名修复与自动归档，歌曲全量保留。';
-    if (type === 'storage-opt') result = '✅ 已完成：无损压缩后节省 49% 空间；手机更轻松，能装下更多歌。';
-    if (type === 'lyrics-cover') result = '✅ 已完成：歌词+封面已补全；可滚动歌词并高亮当前行，体验更像正版播放器。';
-    if (type === 'audio-fix') result = '✅ 已完成：底噪降低、爆音修复；通勤/外放更耐听。';
-    if (type === 'speaker-boost') result = '✅ 已完成：外放增强开启；更响、更稳，开大也不破音。';
-    if (type === 'ai-search') result = '✅ 已完成：无需会拼写，也能识别并定位到目标歌曲。';
-    if (type === 'p2p-sync') result = '✅ 已完成：歌单已同步到 2 台设备；零流量、离线完成。';
-    if (type === 'group-room') result = '✅ 已完成：房间内多人同步播放；暂停/切歌实时生效。';
-    if (type === 'hot-share') result = '✅ 已完成：热榜歌曲已直传好友；分享链路打通，传播更顺。';
-    if (type === 'device-switch') result = '✅ 已完成：新机已自动拉起 App 并恢复最近播放/历史记录。';
-    if (type === 'full-migration') result = '✅ 已完成：歌曲+歌单+进度全量迁移；开机即可续听，不从零开始。';
-    return result;
-  }
-
-  function showDemo(text) {
-    clearDemoTimers();
-    activeDemoType = inferDemoType(text);
-    const meta = getDemoMeta(activeDemoType);
-    document.getElementById('demoText').innerText = text;
-    document.getElementById('demoFocusTitle').innerText = meta.title;
-    document.getElementById('demoKpi').innerText = meta.kpi;
-    document.getElementById('demoStatus').innerText = '演示已就绪：请点击手机内按钮开始动画';
-    renderPhone(getStartScreen(activeDemoType));
-    document.getElementById('demoModal').classList.add('show');
-  }
-  function closeDemo() {
-    clearDemoTimers();
-    document.getElementById('demoModal').classList.remove('show');
-  }
-
-  // 演示动画
-  function runDemo() {
-    const status = document.getElementById('demoStatus');
-    clearDemoTimers();
-    status.innerText = '正在演示手机端操作...';
-    const flow = getRunFlow(activeDemoType);
-
-    // step 1
-    document.getElementById('demoKpi').innerText = flow[0].kpi;
-    renderPhone(flow[0].screen());
-
-    // step 2
-    demoTimers.push(setTimeout(() => {
-      document.getElementById('demoKpi').innerText = flow[1].kpi;
-      renderPhone(flow[1].screen());
-      const bar = document.getElementById('demoBar');
-      if (bar) bar.style.width = '48%';
-    }, 450));
-
-    // step 2 progress
-    demoTimers.push(setTimeout(() => {
-      const bar = document.getElementById('demoBar');
-      if (bar) bar.style.width = '88%';
-    }, 950));
-
-    // step 3
-    demoTimers.push(setTimeout(() => {
-      document.getElementById('demoKpi').innerText = flow[2].kpi;
-      renderPhone(flow[2].screen());
-      const finalText = getResultText(activeDemoType);
-      status.innerText = finalText;
-      document.getElementById('demoKpi').innerText = finalText.replace('✅ 已完成：', '').replace('✅ 演示完成：', '');
-    }, 1500));
-  }
-
-  // 直接点击手机 UI 按钮触发演示
-  document.getElementById('demoScreen').addEventListener('click', (event) => {
-    if (event.target.closest('.js-phone-start')) {
-      runDemo();
-    }
-    if (event.target.closest('.js-toggle-dedupe')) {
-      dedupeEnabled = !dedupeEnabled;
-      if (activeDemoType === 'smart-organize') {
-        renderPhone(getStartScreen('smart-organize'));
-        document.getElementById('demoStatus').innerText = dedupeEnabled
-          ? '已勾选去重：将去重 + 修复 + 归档'
-          : '已取消去重：仅修复命名与归档，重复歌曲会保留';
-      }
-    }
-    if (event.target.closest('.js-phone-audio-preview')) {
-      document.getElementById('demoStatus').innerText = '试听对比：修复后刺耳噪点减少，细节更清晰。';
-      document.getElementById('demoKpi').innerText = '前后对比：噪点位已修复，整体波形更平滑';
-    }
-    if (event.target.closest('.js-phone-lyrics-play')) {
-      clearDemoTimers();
-      const box = document.getElementById('lyricsBox');
-      if (!box) return;
-      const lines = Array.from(box.querySelectorAll('.lyric-line'));
-      let idx = 0;
-      lines.forEach(l => l.classList.remove('active'));
-      const tick = () => {
-        lines.forEach(l => l.classList.remove('active'));
-        const el = lines[idx];
-        if (el) {
-          el.classList.add('active');
-          el.scrollIntoView({ block: 'center', behavior: 'smooth' });
-        }
-        idx += 1;
-        if (idx < lines.length) {
-          demoTimers.push(setTimeout(tick, 520));
-        }
-      };
-      tick();
-    }
-  });
-</script>
-</body>
-</html>
+            <div class="lyrics-box" aria-labe
